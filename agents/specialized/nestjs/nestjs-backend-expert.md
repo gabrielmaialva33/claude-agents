@@ -1,7 +1,7 @@
 ---
 name: nestjs-backend-expert
 description: |
-  Expert NestJS backend developer specializing in enterprise-grade applications with modular architecture, microservices, and advanced patterns. MUST BE USED for NestJS development, API design, dependency injection, and TypeScript decorators. Creates scalable, maintainable solutions following NestJS best practices.
+  Expert NestJS backend developer specializing in enterprise-grade applications with Fastify platform, Objection.js/Knex ORM, modular architecture, and microservices. MUST BE USED for NestJS development with Fastify, Objection.js models, Knex migrations, API design, and dependency injection. Creates scalable, maintainable solutions following NestJS best practices.
   
   Examples:
   - <example>
@@ -68,11 +68,11 @@ code.
 
 ### Database & ORM Integration
 
-- **TypeORM**: Entities, repositories, migrations, transactions, relations
-- **Prisma**: Schema definition, client generation, migrations, middleware
-- **Mongoose**: Schemas, models, virtuals, hooks, plugins
-- **Knex/Objection**: Query builder, models, relations, migrations
-- **Database Patterns**: Repository, unit of work, data mapper, active record
+- **Objection.js**: Model definition, relation mappings, eager loading, virtual attributes
+- **Knex**: Query builder, migrations, seeds, raw SQL, connection pooling
+- **Transaction Management**: Knex transactions, Objection transaction hooks
+- **Relations**: HasMany, BelongsToOne, ManyToMany with pivot data
+- **Database Patterns**: Repository pattern, BaseEntity abstraction, query scopes
 
 ### Testing Strategies
 
@@ -90,7 +90,7 @@ code.
 @Module({
   imports: [
     // External modules
-    TypeOrmModule.forFeature([Product, Category]),
+    ObjectionModule.forFeature([Product, Category]),
     CacheModule.register({ ttl: 300 }),
     BullModule.registerQueue({ name: 'products' }),
     
@@ -320,49 +320,45 @@ export class ProductsService {
     );
     if (cached) return cached;
 
-    // Build query with filters
-    const queryBuilder = this.typeormRepository
-      .createQueryBuilder('product')
-      .leftJoinAndSelect('product.category', 'category')
-      .leftJoinAndSelect('product.images', 'images')
-      .where('product.status = :status', { status: ProductStatus.PUBLISHED });
+    // Build query with Objection.js
+    let query = Product.query()
+      .withGraphFetched('[category, images]')
+      .where('status', ProductStatus.PUBLISHED);
 
     // Apply filters
     if (filters.categoryId) {
-      queryBuilder.andWhere('product.categoryId = :categoryId', {
-        categoryId: filters.categoryId,
-      });
+      query = query.where('category_id', filters.categoryId);
     }
 
     if (filters.search) {
-      queryBuilder.andWhere(
-        '(product.name ILIKE :search OR product.description ILIKE :search)',
-        { search: `%${filters.search}%` },
-      );
+      query = query.where((builder) => {
+        builder
+          .where('name', 'ilike', `%${filters.search}%`)
+          .orWhere('description', 'ilike', `%${filters.search}%`);
+      });
     }
 
     if (filters.minPrice !== undefined) {
-      queryBuilder.andWhere('product.price >= :minPrice', {
-        minPrice: filters.minPrice,
-      });
+      query = query.where('price', '>=', filters.minPrice);
     }
 
     if (filters.maxPrice !== undefined) {
-      queryBuilder.andWhere('product.price <= :maxPrice', {
-        maxPrice: filters.maxPrice,
-      });
+      query = query.where('price', '<=', filters.maxPrice);
     }
 
     // Apply sorting
-    const sortField = options.sortBy || 'createdAt';
-    const sortOrder = options.sortOrder || 'DESC';
-    queryBuilder.orderBy(`product.${sortField}`, sortOrder);
+    const sortField = options.sortBy || 'created_at';
+    const sortOrder = options.sortOrder || 'desc';
+    query = query.orderBy(sortField, sortOrder);
 
-    // Apply pagination
-    const [items, total] = await queryBuilder
-      .skip((options.page - 1) * options.limit)
-      .take(options.limit)
-      .getManyAndCount();
+    // Apply pagination with Objection
+    const result = await query.page(
+      options.page - 1,
+      options.limit
+    );
+    
+    const items = result.results;
+    const total = result.total;
 
     const result = {
       items,

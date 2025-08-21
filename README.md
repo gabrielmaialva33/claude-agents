@@ -36,7 +36,7 @@
 
 ## :bookmark: About
 
-**Claude Agents** is a collection of 32+ specialized AI agents that extend Claude Code's capabilities through
+**Claude Agents** is a collection of 33+ specialized AI agents that extend Claude Code's capabilities through
 intelligent orchestration and domain expertise. Each agent masters specific technologies and patterns, working together
 as your AI development team.
 
@@ -196,7 +196,7 @@ The @agent-team-configurator automatically sets up your perfect AI development t
 - **[Tailwind Frontend Expert](agents/universal/tailwind-css-expert.md)** - Tailwind CSS styling, utility-first
   development, and responsive components
 
-### :wrench: Core Team (8 agents)
+### :wrench: Core Team (9 agents)
 
 - **[Code Archaeologist](agents/core/code-archaeologist.md)** - Explores, documents, and analyzes unfamiliar or legacy
   codebases
@@ -213,8 +213,10 @@ The @agent-team-configurator automatically sets up your perfect AI development t
   processing
 - **[Code Migration Specialist](agents/specialized/code-migration-specialist.md)** - Framework and version migrations
   with zero downtime
+- **[API Security & Pentest Expert](agents/specialized/security/api-security-pentest-expert.md)** - Defensive security
+  testing, OWASP Top 10, and vulnerability assessment
 
-**Total: 32 specialized agents** working together to build your projects!
+**Total: 33 specialized agents** working together to build your projects!
 
 [Browse all agents →](agents/)
 
