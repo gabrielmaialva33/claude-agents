@@ -1227,6 +1227,300 @@ export class HealthController {
 }
 ```
 
+## Fastify-Specific Patterns
+
+### Fastify Plugin Integration
+```typescript
+// Custom Fastify plugin for microservices
+import { FastifyPluginAsync } from 'fastify';
+import fp from 'fastify-plugin';
+
+const microservicePlugin: FastifyPluginAsync = async (fastify, options) => {
+  // Add custom decorators
+  fastify.decorate('messageClient', null);
+  
+  // Add hooks for tracing
+  fastify.addHook('onRequest', async (request, reply) => {
+    request.traceId = request.headers['x-trace-id'] || generateTraceId();
+  });
+  
+  // Add schema validation
+  fastify.addHook('preValidation', async (request, reply) => {
+    // Custom validation logic
+  });
+  
+  // Circuit breaker hook
+  fastify.addHook('preHandler', async (request, reply) => {
+    const breaker = fastify.circuitBreaker.get(request.routerPath);
+    if (breaker && breaker.isOpen()) {
+      reply.code(503).send({ error: 'Service temporarily unavailable' });
+    }
+  });
+};
+
+export default fp(microservicePlugin, {
+  name: 'microservice-plugin',
+  fastify: '4.x',
+});
+
+// Register in NestJS
+@Module({
+  imports: [],
+  providers: [
+    {
+      provide: 'FASTIFY_PLUGIN',
+      useFactory: () => microservicePlugin,
+    },
+  ],
+})
+export class FastifyPluginsModule implements OnModuleInit {
+  constructor(
+    @Inject(HttpAdapterHost) private adapterHost: HttpAdapterHost,
+  ) {}
+  
+  async onModuleInit() {
+    const fastifyInstance = this.adapterHost.httpAdapter.getInstance();
+    await fastifyInstance.register(microservicePlugin);
+  }
+}
+```
+
+### Fastify Multipart for File Processing
+```typescript
+// File processing microservice with Fastify
+@Controller('files')
+export class FileProcessingController {
+  constructor(
+    @Inject(ClientProxy) private readonly processingClient: ClientProxy,
+  ) {}
+  
+  @Post('upload')
+  async uploadFile(@Req() request: FastifyRequest): Promise<any> {
+    // Parse multipart data
+    const data = await request.file();
+    
+    if (!data) {
+      throw new BadRequestException('No file provided');
+    }
+    
+    // Stream to microservice for processing
+    const fileStream = data.file;
+    const metadata = {
+      filename: data.filename,
+      mimetype: data.mimetype,
+      encoding: data.encoding,
+    };
+    
+    // Send to processing microservice
+    return this.processingClient.send(
+      { cmd: 'process-file' },
+      { stream: fileStream, metadata },
+    );
+  }
+  
+  @Post('bulk-upload')
+  async bulkUpload(@Req() request: FastifyRequest): Promise<any> {
+    const parts = request.parts();
+    const results = [];
+    
+    for await (const part of parts) {
+      if (part.file) {
+        // Process each file through microservice
+        const result = await this.processingClient
+          .send({ cmd: 'process-file' }, {
+            stream: part.file,
+            metadata: {
+              filename: part.filename,
+              mimetype: part.mimetype,
+            },
+          })
+          .toPromise();
+        
+        results.push(result);
+      }
+    }
+    
+    return { processed: results.length, results };
+  }
+}
+```
+
+### Fastify WebSocket Gateway
+```typescript
+// WebSocket gateway with Fastify
+@WebSocketGateway({
+  cors: {
+    origin: process.env.CORS_ORIGINS?.split(',') || '*',
+    credentials: true,
+  },
+})
+export class MicroserviceGateway implements OnGatewayConnection {
+  @WebSocketServer()
+  server: Server;
+  
+  constructor(
+    @Inject('ORDERS_SERVICE') private ordersClient: ClientProxy,
+    @Inject('NOTIFICATIONS_SERVICE') private notificationsClient: ClientProxy,
+  ) {}
+  
+  async handleConnection(client: Socket) {
+    // Authenticate with Fastify session
+    const session = await this.validateSession(client.handshake.auth.token);
+    
+    if (!session) {
+      client.disconnect();
+      return;
+    }
+    
+    // Subscribe to user-specific events
+    this.subscribeToUserEvents(session.userId, client);
+  }
+  
+  @SubscribeMessage('order:create')
+  async handleOrderCreate(
+    @MessageBody() data: CreateOrderDto,
+    @ConnectedSocket() client: Socket,
+  ) {
+    // Send to microservice
+    const order = await this.ordersClient
+      .send({ cmd: 'create-order' }, data)
+      .toPromise();
+    
+    // Emit to specific rooms
+    this.server.to(`user:${data.userId}`).emit('order:created', order);
+    
+    // Trigger notification microservice
+    this.notificationsClient.emit('notification:send', {
+      userId: data.userId,
+      type: 'ORDER_CREATED',
+      data: order,
+    });
+    
+    return order;
+  }
+  
+  private subscribeToUserEvents(userId: string, client: Socket) {
+    // Subscribe to Redis pub/sub for user events
+    const subscription = this.ordersClient
+      .send({ cmd: 'subscribe-user-events' }, { userId })
+      .subscribe((event) => {
+        client.emit(event.type, event.data);
+      });
+    
+    client.on('disconnect', () => {
+      subscription.unsubscribe();
+    });
+  }
+}
+```
+
+### Fastify Rate Limiting for Microservices
+```typescript
+// Rate limiting with Fastify and Redis
+import fastifyRateLimit from '@fastify/rate-limit';
+import Redis from 'ioredis';
+
+@Module({})
+export class RateLimitModule implements OnModuleInit {
+  constructor(
+    @Inject(HttpAdapterHost) private adapterHost: HttpAdapterHost,
+    private configService: ConfigService,
+  ) {}
+  
+  async onModuleInit() {
+    const fastifyInstance = this.adapterHost.httpAdapter.getInstance();
+    
+    const redis = new Redis({
+      host: this.configService.get('REDIS_HOST'),
+      port: this.configService.get('REDIS_PORT'),
+    });
+    
+    await fastifyInstance.register(fastifyRateLimit, {
+      global: false,
+      redis,
+      skipOnError: true,
+      keyGenerator: (request) => {
+        // Use user ID for authenticated routes
+        if (request.user?.id) {
+          return `rate-limit:user:${request.user.id}`;
+        }
+        // Use IP for public routes
+        return `rate-limit:ip:${request.ip}`;
+      },
+    });
+  }
+}
+
+// Apply to specific routes
+@Controller('api')
+@UseInterceptors(FastifyRateLimitInterceptor)
+export class ApiController {
+  @Get('data')
+  @RateLimit({ max: 100, timeWindow: '1 minute' })
+  async getData() {
+    // Rate limited endpoint
+  }
+}
+```
+
+### Fastify Hooks for Microservice Communication
+```typescript
+// Request/Reply hooks for distributed tracing
+export class FastifyTracingHooks {
+  static setupHooks(app: NestFastifyApplication) {
+    const fastify = app.getHttpAdapter().getInstance();
+    
+    // Incoming request hook
+    fastify.addHook('onRequest', async (request, reply) => {
+      // Extract or generate trace ID
+      const traceId = request.headers['x-trace-id'] || uuidv4();
+      const spanId = uuidv4();
+      const parentSpanId = request.headers['x-span-id'];
+      
+      // Attach to request
+      request.tracing = {
+        traceId,
+        spanId,
+        parentSpanId,
+      };
+      
+      // Set on reply for response headers
+      reply.header('x-trace-id', traceId);
+      reply.header('x-span-id', spanId);
+    });
+    
+    // Outgoing microservice call hook
+    fastify.addHook('preHandler', async (request, reply) => {
+      // Inject tracing into microservice calls
+      const originalSend = ClientProxy.prototype.send;
+      ClientProxy.prototype.send = function(pattern, data) {
+        const enhancedData = {
+          ...data,
+          __tracing: request.tracing,
+        };
+        return originalSend.call(this, pattern, enhancedData);
+      };
+    });
+    
+    // Response hook for metrics
+    fastify.addHook('onResponse', async (request, reply) => {
+      // Send metrics to monitoring service
+      const duration = reply.getResponseTime();
+      const metrics = {
+        path: request.routerPath,
+        method: request.method,
+        statusCode: reply.statusCode,
+        duration,
+        traceId: request.tracing?.traceId,
+      };
+      
+      // Emit to metrics microservice
+      metricsClient.emit('metrics:http', metrics);
+    });
+  }
+}
+```
+
 ## Best Practices
 
 ### Error Handling
