@@ -36,7 +36,7 @@
 
 ## :bookmark: About
 
-**Claude Agents** is a collection of 33+ specialized AI agents that extend Claude Code's capabilities through
+**Claude Agents** is a collection of 34+ specialized AI agents that extend Claude Code's capabilities through
 intelligent orchestration and domain expertise. Each agent masters specific technologies and patterns, working together
 as your AI development team.
 
