@@ -52,7 +52,7 @@ aligned with the project’s Laravel version and best‑practice guidance.
 ## Eloquent Work Summary
 ### Models/Migrations Added or Edited
 - `app/Models/Invoice.php` – new polymorphic relationship to `Note`
-- `database/migrations/2024_08_03_000001_create_invoices_table.php`
+- `database/migrations/2025_08_03_000001_create_invoices_table.php`
 
 ### Key Decisions
 1. Used **value objects** for Money via `Casts\MoneyCast`.

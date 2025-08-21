@@ -531,16 +531,16 @@ def create_order_partitions():
         # Create monthly partitions
         for month in range(1, 13):
             cursor.execute(f"""
-                CREATE TABLE IF NOT EXISTS orders_2024_{month:02d} 
+                CREATE TABLE IF NOT EXISTS orders_2025_{month:02d} 
                 PARTITION OF orders
-                FOR VALUES FROM ('2024-{month:02d}-01') 
-                TO ('2024-{(month%12)+1:02d}-01');
+                FOR VALUES FROM ('2025-{month:02d}-01') 
+                TO ('2025-{(month%12)+1:02d}-01');
             """)
             
             # Create indexes on partition
             cursor.execute(f"""
-                CREATE INDEX idx_orders_2024_{month:02d}_user 
-                ON orders_2024_{month:02d}(user_id);
+                CREATE INDEX idx_orders_2025_{month:02d}_user 
+                ON orders_2025_{month:02d}(user_id);
             """)
 ```
 
