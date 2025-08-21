@@ -58,7 +58,7 @@ Check system context for available agents. Categories include:
 - **Orchestrators**: planning, analysis, configuration
 - **Core**: review, performance, documentation, intelligent-search
 - **Specialized**:
-    - Framework-specific: Django, Rails, React, Vue, NestJS specialists
+    - Framework-specific: Django, Rails, React, Vue, NestJS, AdonisJS specialists
     - Multi-file operations: multi-file-refactor, batch-file-processor, code-migration-specialist
 - **Universal**: generic fallbacks (backend, frontend, API, tailwind)
 

@@ -36,7 +36,7 @@
 
 ## :bookmark: About
 
-**Claude Agents** is a collection of 30+ specialized AI agents that extend Claude Code's capabilities through
+**Claude Agents** is a collection of 32+ specialized AI agents that extend Claude Code's capabilities through
 intelligent orchestration and domain expertise. Each agent masters specific technologies and patterns, working together
 as your AI development team.
 
@@ -143,7 +143,7 @@ The @agent-team-configurator automatically sets up your perfect AI development t
 - **[Team Configurator](agents/orchestrators/team-configurator.md)** - AI team setup expert who detects your stack and
   configures optimal agent mappings
 
-### :briefcase: Framework Specialists (15 agents)
+### :briefcase: Framework Specialists (17 agents)
 
 - **Laravel (2 agents)**
     - **[Backend Expert](agents/specialized/laravel/laravel-backend-expert.md)** - Comprehensive Laravel development
@@ -179,6 +179,11 @@ The @agent-team-configurator automatically sets up your perfect AI development t
       modules, dependency injection, and decorators
     - **[Microservices Expert](agents/specialized/nestjs/nestjs-microservices-expert.md)** - Distributed systems, RabbitMQ,
       Kafka, gRPC, and saga patterns
+- **AdonisJS (2 agents)**
+    - **[Backend Expert](agents/specialized/adonisjs/adonisjs-backend-expert.md)** - Comprehensive AdonisJS v6 development
+      with IoC container, service layer, and Lucid ORM
+    - **[ACL Expert](agents/specialized/adonisjs/adonisjs-acl-expert.md)** - Access control, RBAC, ABAC, and fine-grained
+      permission systems
 
 ### :globe_with_meridians: Universal Experts (4 agents)
 
@@ -209,7 +214,7 @@ The @agent-team-configurator automatically sets up your perfect AI development t
 - **[Code Migration Specialist](agents/specialized/code-migration-specialist.md)** - Framework and version migrations
   with zero downtime
 
-**Total: 30 specialized agents** working together to build your projects!
+**Total: 32 specialized agents** working together to build your projects!
 
 [Browse all agents →](agents/)
 
