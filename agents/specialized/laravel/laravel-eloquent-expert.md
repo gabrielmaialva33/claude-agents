@@ -50,17 +50,21 @@ aligned with the project’s Laravel version and best‑practice guidance.
 
 ```markdown
 ## Eloquent Work Summary
+
 ### Models/Migrations Added or Edited
-- `app/Models/Invoice.php` – new polymorphic relationship to `Note`
+
+- `app/Models/Invoice.php` – new polymorphic relationship to`Note`
 - `database/migrations/2025_08_03_000001_create_invoices_table.php`
 
 ### Key Decisions
+
 1. Used **value objects** for Money via `Casts\MoneyCast`.
 2. Added composite index `(user_id, status)` to speed up dashboard queries (~4× faster).
 
 ### Next Steps
+
 - Run `php artisan migrate` in staging.
-- Add Telescope watch for slow queries > 200 ms.
+- Add Telescope watch for slow queries >200 ms.
 ```
 
 ---

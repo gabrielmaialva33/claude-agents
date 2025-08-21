@@ -36,11 +36,14 @@
 
 ## :bookmark: About
 
-**Claude Agents** is a collection of 28+ specialized AI agents that extend Claude Code's capabilities through intelligent orchestration and domain expertise. Each agent masters specific technologies and patterns, working together as your AI development team.
+**Claude Agents** is a collection of 28+ specialized AI agents that extend Claude Code's capabilities through
+intelligent orchestration and domain expertise. Each agent masters specific technologies and patterns, working together
+as your AI development team.
 
 ### :warning: Important Notice
 
-**This project is experimental and token-intensive.** Multi-agent orchestration can consume 10-50k tokens per complex feature. Use with caution and monitor your usage.
+**This project is experimental and token-intensive.** Multi-agent orchestration can consume 10-50k tokens per complex
+feature. Use with caution and monitor your usage.
 
 ## :rocket: Quick Start
 
@@ -185,14 +188,21 @@ The @agent-team-configurator automatically sets up your perfect AI development t
 
 ### :wrench: Core Team (8 agents)
 
-- **[Code Archaeologist](agents/core/code-archaeologist.md)** - Explores, documents, and analyzes unfamiliar or legacy codebases
+- **[Code Archaeologist](agents/core/code-archaeologist.md)** - Explores, documents, and analyzes unfamiliar or legacy
+  codebases
 - **[Code Reviewer](agents/core/code-reviewer.md)** - Rigorous security-aware reviews with severity-tagged reports
-- **[Performance Optimizer](agents/core/performance-optimizer.md)** - Identifies bottlenecks and applies optimizations for scalable systems
-- **[Documentation Specialist](agents/core/documentation-specialist.md)** - Crafts comprehensive READMEs, API specs, and technical documentation
-- **[Intelligent Search Agent](agents/core/intelligent-search-agent.md)** - Semantic code discovery combining local and AI-powered search
-- **[Multi-File Refactor](agents/specialized/multi-file-refactor.md)** - Atomic refactoring operations across entire codebases
-- **[Batch File Processor](agents/specialized/batch-file-processor.md)** - High-volume file operations with parallel processing
-- **[Code Migration Specialist](agents/specialized/code-migration-specialist.md)** - Framework and version migrations with zero downtime
+- **[Performance Optimizer](agents/core/performance-optimizer.md)** - Identifies bottlenecks and applies optimizations
+  for scalable systems
+- **[Documentation Specialist](agents/core/documentation-specialist.md)** - Crafts comprehensive READMEs, API specs, and
+  technical documentation
+- **[Intelligent Search Agent](agents/core/intelligent-search-agent.md)** - Semantic code discovery combining local and
+  AI-powered search
+- **[Multi-File Refactor](agents/specialized/multi-file-refactor.md)** - Atomic refactoring operations across entire
+  codebases
+- **[Batch File Processor](agents/specialized/batch-file-processor.md)** - High-volume file operations with parallel
+  processing
+- **[Code Migration Specialist](agents/specialized/code-migration-specialist.md)** - Framework and version migrations
+  with zero downtime
 
 **Total: 28 specialized agents** working together to build your projects!
 
@@ -253,7 +263,7 @@ MIT License - Use freely in your projects!
 ### :writing_hand: Author
 
 | [![Gabriel Maia](https://avatars.githubusercontent.com/u/26732067?size=100)](https://github.com/gabrielmaialva33) |
-| ----------------------------------------------------------------------------------------------------------------- |
+|-------------------------------------------------------------------------------------------------------------------|
 | [Gabriel Maia](https://github.com/gabrielmaialva33)                                                               |
 
 <br>

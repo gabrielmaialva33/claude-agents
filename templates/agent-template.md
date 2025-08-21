@@ -2,7 +2,7 @@
 name: agent-name
 description: |
   MUST BE USED for [specific multi-file task requiring coordination]. Handles complex operations across multiple files with atomic changes and intelligent search capabilities.
-  
+
   Examples:
   - <example>
     Context: User needs to refactor a feature across multiple files
@@ -154,16 +154,20 @@ Max parallel: 3 operations
 ## Task Completed: [Operation Name]
 
 ### Scope Analysis
+
 - Files analyzed: [count]
 - Files modified: [count]
 - Lines changed: [total]
 
 ### Changes by Category
+
 #### Category 1: [Type]
+
 - `path/file1.ext`: [specific changes]
 - `path/file2.ext`: [specific changes]
 
 #### Category 2: [Type]
+
 - `path/file3.ext`: [specific changes]
 
 ### Dependency Graph

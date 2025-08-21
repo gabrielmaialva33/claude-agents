@@ -34,7 +34,7 @@ load.
 5. **Delegation**
 
    | Trigger                  | Target               | Handoff                                  |
-      | ------------------------ | -------------------- | ---------------------------------------- |
+         | ------------------------ | -------------------- | ---------------------------------------- |
    | Deep code insight needed | @agent-code-archaeologist | “Need structure overview of X for docs.” |
    | Endpoint details missing | @agent-api-architect      | “Provide spec for /v1/payments.”         |
 

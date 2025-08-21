@@ -4,7 +4,7 @@ Thank you for your interest in contributing to Claude Agents! This document prov
 contributing to our collection of specialized Claude sub-agents.
 
 ## 🎯 Our Mission
- 
+
 We aim to build the most comprehensive, high-quality collection of Claude sub-agents that enhance productivity across
 various domains. Every contribution helps make Claude Code more powerful for the community.
 

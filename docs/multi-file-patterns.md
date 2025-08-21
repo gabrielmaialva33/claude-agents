@@ -14,28 +14,36 @@ The new multi-file agents bring powerful capabilities for large-scale codebase o
 ## Agent Capabilities
 
 ### 🔄 Multi-File Refactor
+
 Specializes in complex refactoring operations with atomic guarantees:
+
 - Global renames with dependency tracking
 - Extract/inline patterns across files
 - Framework migrations with zero downtime
 - Maintains semantic consistency
 
 ### 🔍 Intelligent Search Agent
+
 Combines local and semantic search for deep code understanding:
+
 - Conceptual pattern matching beyond keywords
 - Cross-language equivalent discovery
 - Hidden dependency mapping
 - API usage pattern analysis
 
 ### 📦 Batch File Processor
+
 High-volume file operations with progress tracking:
+
 - Template application across files
 - Bulk formatting and linting
 - Mass configuration updates
 - Parallel execution with checkpoints
 
 ### 🚀 Code Migration Specialist
+
 Framework and version migrations with safety guarantees:
+
 - Incremental migration strategies
 - Backward compatibility maintenance
 - Feature flag integration
@@ -209,24 +217,28 @@ migration_guide = mcp_ref(
 ## Best Practices
 
 ### 1. Atomic Operations
+
 - Always use MultiEdit for related changes
 - Group changes by semantic meaning
 - Validate after each atomic operation
 - Keep rollback points
 
 ### 2. Search Strategy
+
 - Start with quick local search
 - Use semantic search for concepts
 - Combine multiple search modalities
 - Cache search results
 
 ### 3. Batch Processing
+
 - Determine optimal batch size (10-20 files)
 - Use parallel processing when possible
 - Implement checkpoint recovery
 - Monitor resource usage
 
 ### 4. Migration Safety
+
 - Always maintain backward compatibility
 - Use feature flags for gradual rollout
 - Keep parallel environments
@@ -235,18 +247,21 @@ migration_guide = mcp_ref(
 ## Performance Guidelines
 
 ### MultiEdit Operations
+
 - **Batch Size**: 5-10 files per operation
 - **Validation**: After each batch
 - **Memory**: Monitor for >100 files
 - **Rollback**: Keep git checkpoints
 
 ### Search Operations
+
 - **Cache Duration**: 5-15 minutes
 - **Parallel Searches**: Max 3
 - **Result Limit**: 1000 matches
 - **Timeout**: 30s per search
 
 ### Batch Processing
+
 - **Parallel Workers**: CPU cores - 1
 - **Chunk Size**: 10-20 files
 - **Checkpoint Frequency**: Every 50 files
@@ -255,21 +270,25 @@ migration_guide = mcp_ref(
 ## Example Commands
 
 ### Refactor Class Name
+
 ```bash
 claude "Use @multi-file-refactor to rename UserManager to UserService everywhere"
 ```
 
 ### Migrate to New Framework
+
 ```bash
 claude "Use @code-migration-specialist to migrate from React 17 to React 18"
 ```
 
 ### Find Security Patterns
+
 ```bash
 claude "Use @intelligent-search-agent to find all authentication and authorization patterns"
 ```
 
 ### Update All Configs
+
 ```bash
 claude "Use @batch-file-processor to update all package.json files to use Node 18"
 ```
@@ -279,24 +298,24 @@ claude "Use @batch-file-processor to update all package.json files to use Node 1
 ### Common Issues
 
 1. **Memory Issues with Large Operations**
-   - Reduce batch size
-   - Process in smaller chunks
-   - Use streaming for large files
+    - Reduce batch size
+    - Process in smaller chunks
+    - Use streaming for large files
 
 2. **Failed Atomic Operations**
-   - Check git status
-   - Review rollback procedure
-   - Verify file permissions
+    - Check git status
+    - Review rollback procedure
+    - Verify file permissions
 
 3. **Slow Search Performance**
-   - Use more specific queries
-   - Leverage search cache
-   - Parallelize independent searches
+    - Use more specific queries
+    - Leverage search cache
+    - Parallelize independent searches
 
 4. **Migration Conflicts**
-   - Use incremental approach
-   - Maintain compatibility layer
-   - Test with feature flags
+    - Use incremental approach
+    - Maintain compatibility layer
+    - Test with feature flags
 
 ## Integration with Existing Agents
 
@@ -314,9 +333,11 @@ Tech-Lead Orchestrator
 ## Summary
 
 The new multi-file operation patterns enable:
+
 - **Atomic changes** across entire codebases
 - **Intelligent search** beyond keyword matching
 - **Efficient processing** of hundreds of files
 - **Safe migrations** with zero downtime
 
-These patterns transform how we handle large-scale codebase operations, making complex refactoring and migrations manageable and safe.
+These patterns transform how we handle large-scale codebase operations, making complex refactoring and migrations
+manageable and safe.
