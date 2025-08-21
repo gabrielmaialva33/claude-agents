@@ -1,0 +1,64 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512" width="512" height="512">
+  <!-- Background Circles -->
+  <circle cx="150" cy="200" r="150" fill="#D6E3F3" opacity="0.6"/>
+  <circle cx="380" cy="320" r="120" fill="#B8CAE8" opacity="0.5"/>
+  
+  <!-- Robot Body (Torso) -->
+  <rect x="156" y="260" width="200" height="100" rx="20" fill="#5B9BED"/>
+  
+  <!-- Robot Head -->
+  <rect x="176" y="120" width="160" height="120" rx="30" fill="#5B9BED"/>
+  
+  <!-- Antenna Base -->
+  <rect x="246" y="80" width="20" height="50" fill="#2C4B7C"/>
+  <!-- Antenna Ball -->
+  <circle cx="256" cy="70" r="20" fill="#F9A825"/>
+  
+  <!-- Eye Mask -->
+  <rect x="196" y="160" width="120" height="40" rx="20" fill="#2C4B7C"/>
+  <!-- Eyes -->
+  <circle cx="226" cy="180" r="15" fill="#F9A825"/>
+  <circle cx="286" cy="180" r="15" fill="#F9A825"/>
+  
+  <!-- Mouth -->
+  <path d="M 226 220 Q 256 235 286 220" stroke="#2C4B7C" stroke-width="6" fill="none" stroke-linecap="round"/>
+  
+  <!-- Ears/Side Panels -->
+  <rect x="146" y="170" width="20" height="40" rx="10" fill="#2C4B7C"/>
+  <rect x="346" y="170" width="20" height="40" rx="10" fill="#2C4B7C"/>
+  
+  <!-- Neck -->
+  <rect x="236" y="240" width="40" height="30" fill="#2C4B7C"/>
+  
+  <!-- Laptop Screen -->
+  <rect x="106" y="300" width="300" height="160" rx="15" fill="#1565C0"/>
+  
+  <!-- Laptop Keyboard Base -->
+  <path d="M 106 440 Q 106 460 121 460 L 391 460 Q 406 460 406 440 L 406 460 L 106 460 Z" fill="#0D47A1"/>
+  
+  <!-- Screen Inner -->
+  <rect x="126" y="320" width="260" height="120" fill="#0D47A1"/>
+  
+  <!-- Power Button on Laptop -->
+  <circle cx="256" cy="380" r="15" fill="#3C4758"/>
+  
+  <!-- Laptop Base/Stand -->
+  <rect x="96" y="460" width="320" height="20" rx="10" fill="#2C4B7C"/>
+  
+  <!-- Decorative Code Lines on Screen -->
+  <rect x="146" y="340" width="80" height="4" fill="#4FC3F7" opacity="0.7"/>
+  <rect x="236" y="340" width="40" height="4" fill="#81C784" opacity="0.7"/>
+  <rect x="286" y="340" width="60" height="4" fill="#FFB74D" opacity="0.7"/>
+  
+  <rect x="146" y="355" width="60" height="4" fill="#FFB74D" opacity="0.7"/>
+  <rect x="216" y="355" width="80" height="4" fill="#4FC3F7" opacity="0.7"/>
+  <rect x="306" y="355" width="40" height="4" fill="#81C784" opacity="0.7"/>
+  
+  <rect x="146" y="370" width="40" height="4" fill="#81C784" opacity="0.7"/>
+  <rect x="196" y="370" width="100" height="4" fill="#FFB74D" opacity="0.7"/>
+  <rect x="306" y="370" width="60" height="4" fill="#4FC3F7" opacity="0.7"/>
+  
+  <!-- Robot Arms (optional - simplified) -->
+  <rect x="126" y="280" width="25" height="60" rx="12" fill="#2C4B7C"/>
+  <rect x="361" y="280" width="25" height="60" rx="12" fill="#2C4B7C"/>
+</svg>

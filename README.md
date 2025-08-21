@@ -1,6 +1,6 @@
 <h1 align="center">
   <br>
-  <img src="https://raw.githubusercontent.com/gabrielmaialva33/claude-agents/master/.github/assets/logo.svg" alt="Claude Agents" width="200">
+  <img src="https://raw.githubusercontent.com/gabrielmaialva33/claude-agents/master/.github/assets/claude-agent-logo.svg" alt="Claude Agents" width="200">
   <br>
   Claude Agents - AI Development Team 🚀
   <br>
