@@ -36,7 +36,7 @@
 
 ## :bookmark: About
 
-**Claude Agents** is a collection of 28+ specialized AI agents that extend Claude Code's capabilities through
+**Claude Agents** is a collection of 30+ specialized AI agents that extend Claude Code's capabilities through
 intelligent orchestration and domain expertise. Each agent masters specific technologies and patterns, working together
 as your AI development team.
 
@@ -143,7 +143,7 @@ The @agent-team-configurator automatically sets up your perfect AI development t
 - **[Team Configurator](agents/orchestrators/team-configurator.md)** - AI team setup expert who detects your stack and
   configures optimal agent mappings
 
-### :briefcase: Framework Specialists (13 agents)
+### :briefcase: Framework Specialists (15 agents)
 
 - **Laravel (2 agents)**
     - **[Backend Expert](agents/specialized/laravel/laravel-backend-expert.md)** - Comprehensive Laravel development
@@ -174,6 +174,11 @@ The @agent-team-configurator automatically sets up your perfect AI development t
       patterns
     - **[Nuxt Expert](agents/specialized/vue/vue-nuxt-expert.md)** - SSR, SSG, and full-stack Nuxt applications
     - **[State Manager](agents/specialized/vue/vue-state-manager.md)** - Pinia and Vuex state architecture
+- **NestJS (2 agents)**
+    - **[Backend Expert](agents/specialized/nestjs/nestjs-backend-expert.md)** - Enterprise NestJS development with
+      modules, dependency injection, and decorators
+    - **[Microservices Expert](agents/specialized/nestjs/nestjs-microservices-expert.md)** - Distributed systems, RabbitMQ,
+      Kafka, gRPC, and saga patterns
 
 ### :globe_with_meridians: Universal Experts (4 agents)
 
@@ -204,7 +209,7 @@ The @agent-team-configurator automatically sets up your perfect AI development t
 - **[Code Migration Specialist](agents/specialized/code-migration-specialist.md)** - Framework and version migrations
   with zero downtime
 
-**Total: 28 specialized agents** working together to build your projects!
+**Total: 30 specialized agents** working together to build your projects!
 
 [Browse all agents →](agents/)
 
