@@ -1,7 +1,7 @@
 ---
 name: nestjs-microservices-expert
 description: |
-  Expert in NestJS microservices architecture, message brokers, and distributed systems. MUST BE USED for implementing microservices communication, event-driven architectures, CQRS, and saga patterns. Specializes in RabbitMQ, Kafka, Redis, gRPC, and hybrid transport layers.
+  Expert in NestJS microservices architecture with Fastify platform, message brokers, and distributed systems. MUST BE USED for implementing microservices communication with Fastify adapters, event-driven architectures, CQRS, and saga patterns. Specializes in RabbitMQ, Kafka, Redis, gRPC, Fastify plugins, and hybrid transport layers.
   
   Examples:
   - <example>
@@ -73,12 +73,38 @@ Design and implement robust microservices architectures using NestJS, focusing o
 
 ### RabbitMQ Microservice Setup
 ```typescript
-// Main microservice bootstrap
+// Main microservice bootstrap with Fastify
+import { NestFactory } from '@nestjs/core';
+import { FastifyAdapter, NestFastifyApplication } from '@nestjs/platform-fastify';
+import fastifyCompress from '@fastify/compress';
+import fastifyHelmet from '@fastify/helmet';
+import fastifyMultipart from '@fastify/multipart';
+
 async function bootstrap() {
-  const app = await NestFactory.create(AppModule);
+  const app = await NestFactory.create<NestFastifyApplication>(
+    AppModule,
+    new FastifyAdapter({
+      logger: true,
+      trustProxy: true,
+      bodyLimit: 10485760, // 10MB
+    }),
+  );
   
-  // HTTP server for health checks and admin endpoints
-  app.enableCors();
+  // Register Fastify plugins
+  await app.register(fastifyCompress);
+  await app.register(fastifyHelmet);
+  await app.register(fastifyMultipart, {
+    limits: {
+      fileSize: 10 * 1024 * 1024, // 10MB
+    },
+  });
+  
+  // Enable CORS with Fastify
+  app.enableCors({
+    origin: process.env.CORS_ORIGINS?.split(',') || true,
+    credentials: true,
+  });
+  
   app.useGlobalPipes(new ValidationPipe());
   
   // Connect microservice
