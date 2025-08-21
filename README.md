@@ -143,7 +143,7 @@ The @agent-team-configurator automatically sets up your perfect AI development t
 - **[Team Configurator](agents/orchestrators/team-configurator.md)** - AI team setup expert who detects your stack and
   configures optimal agent mappings
 
-### :briefcase: Framework Specialists (17 agents)
+### :briefcase: Framework Specialists (18 agents)
 
 - **Laravel (2 agents)**
     - **[Backend Expert](agents/specialized/laravel/laravel-backend-expert.md)** - Comprehensive Laravel development
@@ -218,7 +218,7 @@ The @agent-team-configurator automatically sets up your perfect AI development t
 - **[API Security & Pentest Expert](agents/specialized/security/api-security-pentest-expert.md)** - Defensive security
   testing, OWASP Top 10, and vulnerability assessment
 
-**Total: 33 specialized agents** working together to build your projects!
+**Total: 34 specialized agents** working together to build your projects!
 
 [Browse all agents →](agents/)
 
