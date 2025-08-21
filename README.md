@@ -1,24 +1,57 @@
-# Claude Agents - AI Development Team 🚀
+<h1 align="center">
+  <br>
+  <img src="https://raw.githubusercontent.com/gabrielmaialva33/claude-agents/master/.github/assets/logo.svg" alt="Claude Agents" width="200">
+  <br>
+  Claude Agents - AI Development Team 🚀
+  <br>
+</h1>
 
-**Supercharge Claude Code with a team of specialized AI agents** that work together to build complete features, debug
-complex issues, and handle any technology stack with expert-level knowledge.
+<p align="center">
+  <strong>Supercharge Claude Code with a team of specialized AI agents that work together to build complete features</strong>
+</p>
 
-## ⚠️ Important Notice
+<p align="center">
+  <img src="https://img.shields.io/github/license/gabrielmaialva33/claude-agents?color=00b8d3?style=flat&logo=appveyor" alt="License" />
+  <img src="https://img.shields.io/github/languages/top/gabrielmaialva33/claude-agents?style=flat&logo=appveyor" alt="GitHub top language" >
+  <img src="https://img.shields.io/github/languages/count/gabrielmaialva33/claude-agents?style=flat&logo=appveyor" alt="GitHub language count" >
+  <img src="https://img.shields.io/github/repo-size/gabrielmaialva33/claude-agents?style=flat&logo=appveyor" alt="Repository size" >
+  <a href="https://github.com/gabrielmaialva33/claude-agents/commits/master">
+    <img src="https://img.shields.io/github/last-commit/gabrielmaialva33/claude-agents?style=flat&logo=appveyor" alt="GitHub last commit" >
+    <img src="https://img.shields.io/badge/made%20by-Maia-15c3d6?style=flat&logo=appveyor" alt="Maia" >  
+  </a>
+</p>
 
-**This project is experimental and token-intensive.** I'm actively testing these agents with Claude subscription -
-expect high token consumption during complex workflows. Multi-agent orchestration can consume 10-50k tokens per complex
-feature. Use with caution and monitor your usage.
+<br>
 
-## 🚀 Quick Start (3 Minutes)
+<p align="center">
+  <a href="#bookmark-about">About</a>&nbsp;&nbsp;&nbsp;|&nbsp;&nbsp;&nbsp;
+  <a href="#rocket-quick-start">Quick Start</a>&nbsp;&nbsp;&nbsp;|&nbsp;&nbsp;&nbsp;
+  <a href="#busts_in_silhouette-meet-your-team">Meet Your Team</a>&nbsp;&nbsp;&nbsp;|&nbsp;&nbsp;&nbsp;
+  <a href="#sparkles-features">Features</a>&nbsp;&nbsp;&nbsp;|&nbsp;&nbsp;&nbsp;
+  <a href="#books-documentation">Documentation</a>&nbsp;&nbsp;&nbsp;|&nbsp;&nbsp;&nbsp;
+  <a href="#memo-license">License</a>
+</p>
 
-### Prerequisites
+<br>
+
+## :bookmark: About
+
+**Claude Agents** is a collection of 28+ specialized AI agents that extend Claude Code's capabilities through intelligent orchestration and domain expertise. Each agent masters specific technologies and patterns, working together as your AI development team.
+
+### :warning: Important Notice
+
+**This project is experimental and token-intensive.** Multi-agent orchestration can consume 10-50k tokens per complex feature. Use with caution and monitor your usage.
+
+## :rocket: Quick Start
+
+### :heavy_check_mark: Prerequisites
 
 - **Claude Code CLI** installed and authenticated
 - **Claude subscription** - required for intensive agent workflows
 - Active project directory with your codebase
 - **Optional**: [Context7 MCP](docs/dependencies.md) for enhanced documentation access
 
-### 1. Install the Agents
+### :arrow_down: Installation
 
 ```bash
 git clone https://github.com/gabrielmaialva33/claude-agents.git
@@ -56,14 +89,14 @@ mkdir -p ~/.claude/agents
 cp -r claude-agents/agents ~/.claude/agents/claude-agents
 ```
 
-### 2. Verify Installation
+### :white_check_mark: Verify Installation
 
 ```bash
 claude /agents
 # Should show all 24 agents.
 ```
 
-### 3. Initialize Your Project
+### :gear: Initialize Your Project
 
 **Navigate** to your **project directory** and run the following command to configure your AI team:
 
@@ -71,7 +104,7 @@ claude /agents
 claude "use @agent-team-configurator and optimize my project to best use the available subagents."
 ```
 
-### 4. Start Building
+### :rocket: Start Building
 
 ```bash
 claude "use @agent-tech-lead-orchestrator and build a user authentication system"
@@ -79,7 +112,7 @@ claude "use @agent-tech-lead-orchestrator and build a user authentication system
 
 Your AI team will automatically detect your stack and use the right specialists!
 
-## 🎯 How Auto-Configuration Works
+## :dart: How Auto-Configuration Works
 
 The @agent-team-configurator automatically sets up your perfect AI development team. When invoked, it:
 
@@ -96,9 +129,9 @@ The @agent-team-configurator automatically sets up your perfect AI development t
 6. **Provides Usage Guidance** - Shows you the detected stack, selected agents, and gives sample commands to start
    building
 
-## 👥 Meet Your AI Development Team
+## :busts_in_silhouette: Meet Your AI Development Team
 
-### 🎭 Orchestrators (3 agents)
+### :performing_arts: Orchestrators (3 agents)
 
 - **[Tech Lead Orchestrator](agents/orchestrators/tech-lead-orchestrator.md)** - Senior technical lead who analyzes
   complex projects and coordinates multi-step development tasks
@@ -107,7 +140,7 @@ The @agent-team-configurator automatically sets up your perfect AI development t
 - **[Team Configurator](agents/orchestrators/team-configurator.md)** - AI team setup expert who detects your stack and
   configures optimal agent mappings
 
-### 💼 Framework Specialists (13 agents)
+### :briefcase: Framework Specialists (13 agents)
 
 - **Laravel (2 agents)**
     - **[Backend Expert](agents/specialized/laravel/laravel-backend-expert.md)** - Comprehensive Laravel development
@@ -139,7 +172,7 @@ The @agent-team-configurator automatically sets up your perfect AI development t
     - **[Nuxt Expert](agents/specialized/vue/vue-nuxt-expert.md)** - SSR, SSG, and full-stack Nuxt applications
     - **[State Manager](agents/specialized/vue/vue-state-manager.md)** - Pinia and Vuex state architecture
 
-### 🌐 Universal Experts (4 agents)
+### :globe_with_meridians: Universal Experts (4 agents)
 
 - **[Backend Developer](agents/universal/backend-developer.md)** - Polyglot backend development across multiple
   languages and frameworks
@@ -150,51 +183,64 @@ The @agent-team-configurator automatically sets up your perfect AI development t
 - **[Tailwind Frontend Expert](agents/universal/tailwind-css-expert.md)** - Tailwind CSS styling, utility-first
   development, and responsive components
 
-### 🔧 Core Team (4 agents)
+### :wrench: Core Team (8 agents)
 
-- **[Code Archaeologist](agents/core/code-archaeologist.md)** - Explores, documents, and analyzes unfamiliar or legacy
-  codebases
+- **[Code Archaeologist](agents/core/code-archaeologist.md)** - Explores, documents, and analyzes unfamiliar or legacy codebases
 - **[Code Reviewer](agents/core/code-reviewer.md)** - Rigorous security-aware reviews with severity-tagged reports
-- **[Performance Optimizer](agents/core/performance-optimizer.md)** - Identifies bottlenecks and applies optimizations
-  for scalable systems
-- **[Documentation Specialist](agents/core/documentation-specialist.md)** - Crafts comprehensive READMEs, API specs, and
-  technical documentation
+- **[Performance Optimizer](agents/core/performance-optimizer.md)** - Identifies bottlenecks and applies optimizations for scalable systems
+- **[Documentation Specialist](agents/core/documentation-specialist.md)** - Crafts comprehensive READMEs, API specs, and technical documentation
+- **[Intelligent Search Agent](agents/core/intelligent-search-agent.md)** - Semantic code discovery combining local and AI-powered search
+- **[Multi-File Refactor](agents/specialized/multi-file-refactor.md)** - Atomic refactoring operations across entire codebases
+- **[Batch File Processor](agents/specialized/batch-file-processor.md)** - High-volume file operations with parallel processing
+- **[Code Migration Specialist](agents/specialized/code-migration-specialist.md)** - Framework and version migrations with zero downtime
 
-**Total: 24 specialized agents** working together to build your projects!
+**Total: 28 specialized agents** working together to build your projects!
 
 [Browse all agents →](agents/)
 
-## 🔥 Why Teams Beat Solo AI
+## :sparkles: Features
+
+### Core Capabilities
 
 - **Specialized Expertise**: Each agent masters their domain with deep, current knowledge
 - **Real Collaboration**: Agents coordinate seamlessly, sharing context and handing off tasks
 - **Tailored Solutions**: Get code that matches your exact stack and follows its best practices
 - **Parallel Execution**: Multiple specialists work simultaneously for faster delivery
 
-## 📈 The Impact
+### Advanced Features (v2.0)
+
+- **MultiEdit Operations**: Atomic changes across multiple files
+- **MCP Integration**: Exa semantic search and Ref documentation lookup
+- **Parallel Processing**: Execute independent operations concurrently
+- **Intelligent Routing**: Automatic agent selection based on task
+- **Progress Tracking**: Real-time status updates with checkpoints
+
+## :chart_with_upwards_trend: The Impact
 
 - **Ship Faster** - Complete features in minutes, not days
 - **Better Code Quality** - Every line follows best practices
 - **Learn As You Code** - See how experts approach problems
 - **Scale Confidently** - Architecture designed for growth
 
-## 📚 Learn More
+## :books: Documentation
 
 - [Creating Custom Agents](docs/creating-agents.md) - Build specialists for your needs
 - [Best Practices](docs/best-practices.md) - Get the most from your AI team
+- [Multi-File Patterns](docs/multi-file-patterns.md) - Advanced patterns for large-scale operations
+- [Enhanced Agent Template](templates/enhanced-agent-template.md) - Optimized template for new agents
 
-## 💬 Join The Community
+## :speech_balloon: Join The Community
 
 - ⭐ **Star this repo** to show support
 - 🐛 [Report issues](https://github.com/gabrielmaialva33/claude-agents/issues)
 - 💡 [Share ideas](https://github.com/gabrielmaialva33/claude-agents/discussions)
 - 🎉 [Success stories](https://github.com/gabrielmaialva33/claude-agents/discussions/categories/show-and-tell)
 
-## 📄 License
+## :memo: License
 
 MIT License - Use freely in your projects!
 
-## Star History
+## :star: Star History
 
 [![Star History Chart](https://api.star-history.com/svg?repos=gabrielmaialva33/claude-agents&type=Date)](https://www.star-history.com/#gabrielmaialva33/claude-agents&Date)
 ---
@@ -204,8 +250,13 @@ MIT License - Use freely in your projects!
   <em>Simple setup. Powerful results. Just describe and build.</em>
 </p>
 
-<p align="center">
-  <a href="https://github.com/gabrielmaialva33/claude-agents">GitHub</a> •
-  <a href="docs/creating-agents.md">Documentation</a> •
-  <a href="https://github.com/gabrielmaialva33/claude-agents/discussions">Community</a>
-</p>
+### :writing_hand: Author
+
+| [![Gabriel Maia](https://avatars.githubusercontent.com/u/26732067?size=100)](https://github.com/gabrielmaialva33) |
+| ----------------------------------------------------------------------------------------------------------------- |
+| [Gabriel Maia](https://github.com/gabrielmaialva33)                                                               |
+
+<br>
+
+<p align="center"><img src="https://raw.githubusercontent.com/gabrielmaialva33/gabrielmaialva33/master/assets/gray0_ctp_on_line.svg?sanitize=true" /></p>
+<p align="center">&copy; 2024-present <a href="https://github.com/gabrielmaialva33/" target="_blank">Maia</a></p>
