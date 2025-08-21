@@ -174,11 +174,13 @@ The @agent-team-configurator automatically sets up your perfect AI development t
       patterns
     - **[Nuxt Expert](agents/specialized/vue/vue-nuxt-expert.md)** - SSR, SSG, and full-stack Nuxt applications
     - **[State Manager](agents/specialized/vue/vue-state-manager.md)** - Pinia and Vuex state architecture
-- **NestJS (2 agents)**
-    - **[Backend Expert](agents/specialized/nestjs/nestjs-backend-expert.md)** - Enterprise NestJS development with
+- **NestJS (3 agents)**
+    - **[Backend Expert](agents/specialized/nestjs/nestjs-backend-expert.md)** - Enterprise NestJS with Fastify platform,
       modules, dependency injection, and decorators
-    - **[Microservices Expert](agents/specialized/nestjs/nestjs-microservices-expert.md)** - Distributed systems, RabbitMQ,
-      Kafka, gRPC, and saga patterns
+    - **[Objection.js Expert](agents/specialized/nestjs/nestjs-objection-expert.md)** - Objection.js ORM, Knex migrations,
+      complex relations, and query optimization
+    - **[Microservices Expert](agents/specialized/nestjs/nestjs-microservices-expert.md)** - Distributed systems with Fastify,
+      RabbitMQ, Kafka, gRPC, and saga patterns
 - **AdonisJS (2 agents)**
     - **[Backend Expert](agents/specialized/adonisjs/adonisjs-backend-expert.md)** - Comprehensive AdonisJS v6 development
       with IoC container, service layer, and Lucid ORM
